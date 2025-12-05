@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'vina';
+    src: url(../font/Notable-Regular.ttf);
+}
+ 
+body{
+    background-color: rgb(188, 223, 235);
+    font-family: 'vina';
+
+}
+
+
+.gumb{
+    background-color: rgb(57, 102, 187);
+    border-radius: 10px;
+    color: azure;
+}
+.waz, .had{
+    background-color: rgb(131, 166, 218);
+}
+.card{
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 30% 0%);
+    color: rgb(226, 226, 244);
+
+}

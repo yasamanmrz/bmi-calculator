@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/stylesheet/output.css">
+    <link rel="stylesheet" href="assets/stylesheet/master.css">
+    <link rel="stylesheet" href="assets/icon/css/fontello.css">
+</head>
+<body>
+   <section class="bmiForm w-full h-[100vh] flex justify-evenly items-center">
+    <div class=" w-100 h-150 flex justify-end items-end relative">
+        <div class="w-50 h-50 absolute z-2 bottom-8 right-65 rounded-full overflow-hidden">
+            <figure class="w-full h-55 rounded-full">
+                <img src="assets/img/yasi.jpg" alt="" class="w-full h-full rounded-full">
+            </figure>
+        </div>
+        <div class="card w-100 h-40 border absolute bg-blue-950 *:w-full *:h-13 *:flex *:justify-end *:items-center">
+            <div><span class="text-[15px]">github :</span><span class="text-[15px] p-3">yasamanmrz</span></div>
+            <div><span class="text-[15px]">instagram :</span><span class="text-[15px] p-3">yasaman-dev</span></div>
+            <div><span class="text-[15px]">linkedin :</span><span class="text-[15px] p-3">yasamanmirzaei</span></div>
+        </div>
+    </div>
+    
+    <div class="w-100 h-150 shadow-2xl shadow-blue-950 text-center p-5">
+        <h1 class="text-blue-950 text-[26px] capitalize mt-5">calculate your BMI</h1>
+        <div class="bmi-calculator-weight w-full mt-5">
+            <input type="range" min="25" max="180" value="50" id="myWeight" name="realWeight" class="w-70 mt-8 Weight-Slider">
+            <p class="m-5 flex mx-8 text-blue-950 text-[20px]">WEIGHT:
+                <input type="number" value="50" id="inputWeight" min="25" max="180" class="waz mx-3" oninput="showValWeight(this.value)">
+                <span id="Weight"></span>Kg
+            </p>
+        </div>
+        <div class="bmi-calculator-height w-full mt-5">
+            <input type="range" min="100" max="220" value="150" id="myHeight" name="realHeight" class="w-70 mt-8 Height-Slider">
+            <p class="m-5 flex mx-8 text-blue-950 text-[20px]">HEIGHT:
+                <input type="number" value="150" id="inputHeight" min="100" max="220" class="had mx-3 text-[20px]" oninput="showValHeight(this.value)">
+                <span id="Weight"></span>cm
+            </p>
+        </div>
+        <button class="gumb m-8 px-10 py-3 text-[21px] cursor-pointer">calculate</button>
+        <p class="flex items-center justify-start text-[22px] mx-5">
+            <strong class="text-blue-950">your BMI:</strong>
+            <span id="yourBmi" class="mx-4 text-blue-900 text-[27px]"></span>
+        </p>
+        <p></p>
+        <p>
+            <span id="Message" class="text-[27px] text-blue-900 flex justify-start ml-5"></span>
+        </p>
+     </div>
+    </div>
+    <div class="w-100 h-150"></div>
+   </section>
+</body>
+<script>
+   const weightSlider = document.getElementById('myWeight')
+   const heightSlider = document.getElementById('myHeight')
+   const weightInput = document.getElementById('inputWeight')
+   const heightInput = document.getElementById('inputHeight')
+   const bmiResult = document.getElementById('yourBmi')
+   const message = document.getElementById('Message')
+   const btn = document.querySelector('.gumb')
+
+  
+   function fill(slider) {
+    let p = ((slider.value - slider.min) / (slider.max - slider.min)) * 100
+}
+
+
+function link(slider, input) {
+    slider.oninput = () => { input.value = slider.value; fill(slider) }
+    input.oninput  = () => { slider.value = input.value; fill(slider) }
+}
+
+
+link(weightSlider, weightInput)
+link(heightSlider, heightInput)
+
+btn.onclick=()=>{
+    let w = Number(weightInput.value)
+    let h = Number(heightInput.value) / 100
+    let bmi = (w/(h*h)).toFixed(1)
+    bmiResult.textContent = bmi
+
+    if(bmi < 18){
+        message.textContent = 'underweight'
+    }else if(bmi < 25){
+        message.textContent = 'normal'
+    }else if(bmi < 30){
+        message.textContent = 'overweight'
+    }else{
+        message.textContent = 'obese'
+    }
+
+}
+</script>
+</html>
+
+
+
+<!-- npx @tailwindcss/cli -i ./src/assets/stylesheet/master.css -o ./src/assets/stylesheet/output.css --watch -->
