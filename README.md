@@ -15,5 +15,5 @@ This tool is perfect for anyone who wants a quick and easy way to understand the
 <img width="1920" height="1030" alt="Document - Google Chrome 12_5_2025 8_46_16 PM" src="https://github.com/user-attachments/assets/51c9cdf3-e4d6-4b31-932e-38971717f5e6" />
 
 <ul>
-  <li><a href="https://yasamanmrz.github.io/bmi-calculator/src/index.html"></a>live demo</li>
+  <li><a href="https://yasamanmrz.github.io/bmi-calculator/src/index.html">live demo</a></li>
 </ul>
